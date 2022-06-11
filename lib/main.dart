@@ -62,10 +62,32 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
                   children: [
                     TableRow(children: [
                       Container(
+                        color: Colors.redAccent,
                         height: MediaQuery.of(context).size.height * 0.10,
                         child: TextButton(
+                          style: ButtonStyle(
+                            padding:
+                                MaterialStateProperty.all(EdgeInsets.all(16)),
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0),
+                                side: BorderSide(
+                                  color: Colors.white,
+                                  width: 1,
+                                  style: BorderStyle.solid,
+                                ),
+                              ),
+                            ),
+                          ),
                           onPressed: () {},
-                          child: Text('data'),
+                          child: Text(
+                            'C',
+                            style: TextStyle(
+                              fontSize: 31,
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
                     ]),
