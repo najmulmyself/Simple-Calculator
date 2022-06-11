@@ -58,6 +58,19 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * .75,
+                child: Table(
+                  children: [
+                    TableRow(children: [
+                      Container(
+                        height: MediaQuery.of(context).size.height * 0.10,
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Text('data'),
+                        ),
+                      ),
+                    ]),
+                  ],
+                ),
               )
             ],
           )
