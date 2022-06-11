@@ -54,7 +54,7 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
             child: Divider(),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * .75,
