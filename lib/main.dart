@@ -26,6 +26,24 @@ class SimpleCalculator extends StatefulWidget {
 }
 
 class _SimpleCalculatorState extends State<SimpleCalculator> {
+  String equation = '0';
+  String expression = '';
+  String result = '0';
+  double equationFontSize = 38.0;
+  double resultFontSize = 48.0;
+
+  buttonPressed(String buttonText) {
+    setState(() {
+      if (buttonText == 'C') {
+      } else if (buttonText == '⌫') {
+      } else if (buttonText == '=') {
+      } else {
+        equation = equation +
+            buttonText; // we dont want to show equation field those sign(c,⌫,=), if those not then show all the key to equation
+      }
+    });
+  }
+
   Widget buildButton(
       String buttonText, double buttonHeight, Color buttonColor) {
     return Container(
@@ -45,7 +63,9 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
             ),
           ),
         ),
-        onPressed: () {},
+        onPressed: () {
+          buttonPressed(buttonText);
+        },
         child: Text(
           buttonText,
           style: TextStyle(
@@ -69,17 +89,17 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
           Container(
             alignment: Alignment.centerRight,
             padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
-            child: const Text(
-              '0',
-              style: const TextStyle(fontSize: 38),
+            child: Text(
+              equation,
+              style: TextStyle(fontSize: equationFontSize),
             ),
           ),
           Container(
             alignment: Alignment.centerRight,
             padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
-            child: const Text(
-              '0',
-              style: const TextStyle(fontSize: 38),
+            child: Text(
+              result,
+              style: TextStyle(fontSize: resultFontSize),
             ),
           ),
           Expanded(
@@ -95,7 +115,7 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
                     TableRow(
                       children: [
                         buildButton("C", 1, Colors.redAccent),
-                        buildButton("⤬", 1, Colors.blue),
+                        buildButton("⌫", 1, Colors.blue),
                         buildButton("÷", 1, Colors.blue),
                       ],
                     ),
