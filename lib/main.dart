@@ -35,11 +35,18 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
   buttonPressed(String buttonText) {
     setState(() {
       if (buttonText == 'C') {
+        equation = '0';
+        result = '0';
       } else if (buttonText == '⌫') {
+        equation = equation.substring(0, equation.length - 1);
       } else if (buttonText == '=') {
       } else {
-        equation = equation +
-            buttonText; // we dont want to show equation field those sign(c,⌫,=), if those not then show all the key to equation
+        if (equation == '0') {
+          equation = buttonText;
+        } else {
+          equation = equation +
+              buttonText; // we dont want to show equation field those sign(c,⌫,=), if those not then show all the key to equation
+        }
       }
     });
   }
