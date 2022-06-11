@@ -129,6 +129,28 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
                     ),
                   ],
                 ),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width * .25,
+                child: Table(
+                  children: [
+                    TableRow(
+                      children: [buildButton('×', 1, Colors.blue)],
+                    ),
+                    TableRow(
+                      children: [buildButton('-', 1, Colors.blue)],
+                    ),
+                    TableRow(
+                      children: [buildButton('+', 1, Colors.blue)],
+                    ),
+                    TableRow(
+                      children: [buildButton('=', 2, Colors.redAccent)],
+                    ),
+                    // TableRow(
+                    //   children: [buildButton('×', 1, Colors.blue)],
+                    // ),
+                  ],
+                ),
               )
             ],
           )
