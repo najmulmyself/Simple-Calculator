@@ -26,6 +26,38 @@ class SimpleCalculator extends StatefulWidget {
 }
 
 class _SimpleCalculatorState extends State<SimpleCalculator> {
+  Widget buildButton(
+      String buttonText, double buttonHeight, Color buttonColor) {
+    return Container(
+      color: buttonColor,
+      height: MediaQuery.of(context).size.height * 0.10 * buttonHeight,
+      child: TextButton(
+        style: ButtonStyle(
+          padding: MaterialStateProperty.all(EdgeInsets.all(16)),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(0),
+              side: BorderSide(
+                color: Colors.white,
+                width: 1,
+                style: BorderStyle.solid,
+              ),
+            ),
+          ),
+        ),
+        onPressed: () {},
+        child: Text(
+          buttonText,
+          style: TextStyle(
+            fontSize: 31,
+            fontWeight: FontWeight.normal,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,37 +92,9 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
                 width: MediaQuery.of(context).size.width * .75,
                 child: Table(
                   children: [
-                    TableRow(children: [
-                      Container(
-                        color: Colors.redAccent,
-                        height: MediaQuery.of(context).size.height * 0.10,
-                        child: TextButton(
-                          style: ButtonStyle(
-                            padding:
-                                MaterialStateProperty.all(EdgeInsets.all(16)),
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(0),
-                                side: BorderSide(
-                                  color: Colors.white,
-                                  width: 1,
-                                  style: BorderStyle.solid,
-                                ),
-                              ),
-                            ),
-                          ),
-                          onPressed: () {},
-                          child: Text(
-                            'C',
-                            style: TextStyle(
-                              fontSize: 31,
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ]),
+                    TableRow(
+                      children: [buildButton("C", 1, Colors.redAccent)],
+                    ),
                   ],
                 ),
               )
